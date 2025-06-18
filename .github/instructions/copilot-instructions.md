@@ -171,3 +171,46 @@ The AI-Powered Exam Preparation App transforms student study experiences with pe
 ## Frontend:
 
 -- React-Native
+
+
+
+backend/
+    manage.py
+    backend/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+    users/
+        __init__.py
+        admin.py
+        apps.py
+        models.py
+        serializers.py
+        views.py
+        urls.py
+    content/
+        __init__.py
+        admin.py
+        apps.py
+        models.py
+        serializers.py
+        views.py
+        urls.py
+    ai_tutor/
+        __init__.py
+        admin.py
+        apps.py
+        models.py
+        serializers.py
+        views.py
+        urls.py
+    recommendations/
+        __init__.py
+        apps.py
+        views.py
+        urls.py
+    services/
+        __init__.py
+        ai_services.py  # Handles integration with external AI APIs
