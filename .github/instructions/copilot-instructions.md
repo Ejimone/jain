@@ -182,7 +182,7 @@ backend/
         urls.py
         asgi.py
         wsgi.py
-    users/
+    student/
         __init__.py
         admin.py
         apps.py
@@ -198,7 +198,7 @@ backend/
         serializers.py
         views.py
         urls.py
-    ai_tutor/
+    AItutor/
         __init__.py
         admin.py
         apps.py
@@ -214,3 +214,5 @@ backend/
     services/
         __init__.py
         ai_services.py  # Handles integration with external AI APIs
+
+
