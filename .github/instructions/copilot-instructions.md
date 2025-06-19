@@ -167,6 +167,7 @@ The AI-Powered Exam Preparation App transforms student study experiences with pe
 ## Backend:
 
 -- Django
+-- FastAPI for the AI services
 
 ## Frontend:
 
