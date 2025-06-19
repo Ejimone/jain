@@ -259,7 +259,7 @@ class RagProcessor:
             #check similarity threshold
             if max_similarity < self.config.similarity_threshold:
                 logger.warning(f"Max similarity {max_similarity} is below threshold {self.config.similarity_threshold}.")
-                return self._handle_low_confidence(query)
+                return await self._handle_low_confidence(query)
 
             # Generate context-based answer, will be able to make a websearch if it doesnt know the answer
             context = "\n\n".join([doc.page_content for doc in docs])
