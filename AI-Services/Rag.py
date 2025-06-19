@@ -113,6 +113,37 @@ class RagProcessor:
                 logger.error(f"Failed to initialize OpenAI embeddings: {e}")
                 raise RuntimeError("Failed to initialize any embeddings for RAG processing.")
         
+    async def __process_urls(self, urls: List[str]) -> List[Any]:
+        """Process documents from a list of URLs."""
+        logger.info(f"Processing {len(urls)} URLs...")
+        if not urls:
+            return []
+        try:
+            loader = UnstructuredURLLoader(urls=urls)
+            loop = asyncio.get_event_loop()
+            documents = await loop.run_in_executor(None, loader.load)
+            logger.info(f"Successfully loaded {len(documents)} documents from URLs.")
+            return documents
+        except Exception as e:
+            logger.error(f"Failed to process URLs: {e}")
+            return []
+
+    async def __process_pdfs(self, pdf_paths: List[str]) -> List[Any]:
+        """Process PDF documents."""
+        return await self._process_files(pdf_paths, 'pdf')
+
+    async def __process_words(self, word_paths: List[str]) -> List[Any]:
+        """Process Word documents."""
+        return await self._process_files(word_paths, 'word')
+
+    async def __process_ppts(self, ppt_paths: List[str]) -> List[Any]:
+        """Process PowerPoint documents."""
+        return await self._process_files(ppt_paths, 'ppt')
+
+    async def __process_images(self, images: List[str]) -> List[Any]:
+        """Process image documents (placeholder)."""
+        logger.warning("Image processing is not yet implemented.")
+        return []
 
     async def process_documents(
         self,
@@ -135,14 +166,17 @@ class RagProcessor:
             tasks.append(self.__process_ppts(ppt_paths))
         if images:
             tasks.append(self.__process_images(images))
-        await asyncio.gather(*tasks)
-        self.vectorstore = FAISS.from_documents(self.documents, self.embeddings)
+        
+        processed_docs_lists = await asyncio.gather(*tasks)
+        for doc_list in processed_docs_lists:
+            if doc_list:
+                docs.extend(doc_list)
 
         if not docs:
             logger.warning("No documents were processed. Ensure valid inputs are provided.")
             return False
         
-        return await self.__create_vector_store(docs)
+        return await self._create_vector_store(docs)
     
     async def _process_files(self, file_paths: List[str], file_type: str) -> List[Any]:
         """Generic file processor for different document types."""
@@ -158,14 +192,12 @@ class RagProcessor:
                 else:
                     raise ValueError(f"Unsupported file type: {file_type}")
                 
-                documents = loader.load()
+                loop = asyncio.get_event_loop()
+                documents = await loop.run_in_executor(None, loader.load)
                 docs.extend(documents)
             except Exception as e:
                 logger.error(f"Failed to process {file_type} file {path}: {e}")
-            
-            loop = asyncio.get_event_loop()
-            loaded_docs = await loop.run_in_executor(None, self.__split_documents, docs)
-        return loaded_docs
+        return docs
     
 
 
@@ -188,7 +220,7 @@ class RagProcessor:
                 return False
 
             logger.info(f"Creating vector store with {len(splits)} text splits")
-            self.vector_store = FAISS.from_documents(splits, self.embeddings)
+            self.vectorstore = FAISS.from_documents(splits, self.embeddings)
             return True
 
         except Exception as e:
@@ -245,7 +277,7 @@ class RagProcessor:
             if self._is_uncertain_answer(answer):
                 logger.warning("Model returned an uncertain answer. Attempting web search for more information.")
                 await self._web_search(query)
-                return await self.handle_uncertain_answer(query, answer)
+                return await self._handle_uncertain_answer(query, answer)
             return {
                 "answer": answer,
                 "sources": [doc.metadata for doc in docs],
@@ -387,7 +419,7 @@ def web_search(query: str, num_results: int = 5) -> List[Dict[str, str]]:
 async def RAG():
     try:
         print("Initializing RAG processor...")
-        processor = RagProcessor()
+        processor = RagProcessor(DocumentProcessorConfig())
         
         print("\nDocument Input Options:")
         print("1. For URLs: Enter the full URLs separated by commas")

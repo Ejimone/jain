@@ -85,3 +85,4 @@ beautifulSoup4
 langchain-openai
 langchain-text-splitters
 langchain-community
+unstructured
