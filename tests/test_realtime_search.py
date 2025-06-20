@@ -5,9 +5,21 @@ Demonstrates various search capabilities for educational content.
 """
 
 import os
+import sys
 import asyncio
 import json
 from pprint import pprint
+
+# Add the AI-Services directory to the Python path
+ai_services_path = os.path.join(os.path.dirname(__file__), '..', 'AI-Services')
+sys.path.insert(0, ai_services_path)
+
+# Load environment variables from the parent directory's .env file
+from dotenv import load_dotenv
+parent_env_path = os.path.join(os.path.dirname(__file__), '..', 'AI-Services', '.env')
+load_dotenv(parent_env_path)
+
+# Import from AI-Services directory
 from RealTimeSearch import RealTimeSearch, create_real_time_agent
 
 
