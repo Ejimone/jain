@@ -2,6 +2,8 @@
 applyTo: "**"
 ---
 
+ignore 'data' directory, thats where the AI data training files will be stored.
+
 Coding standards, domain knowledge, and preferences that AI should follow.
 
 # Examify: AI-Powered Exam Preparation App: Comprehensive Documentation
