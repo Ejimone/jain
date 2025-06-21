@@ -1,5 +1,5 @@
 # Text-based problem solving (no OCR needed)
-from AI_Services.maths_solution import GeminiMathSolver
+from backend.services.ai_services import GeminiMathSolver
 import asyncio
 
 async def solve_problem():

@@ -85,10 +85,9 @@ langchain==0.2.5
 langchain-community==0.2.5
 langchain-google-genai==1.0.6
 langchain-openai==0.1.8
-unstructured[urls]==0.14.9
+unstructured[urls]
 faiss-cpu
-aiohttp==3.10.12
-serpapi==0.2.0
-hashlib3==1.0.2
-python-dotenv==1.0.0
-mpxpy==1.0.2
+aiohttp
+serpapi
+python-dotenv
+mpxpy
