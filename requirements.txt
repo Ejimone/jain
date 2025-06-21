@@ -91,3 +91,4 @@ aiohttp==3.10.12
 serpapi==0.2.0
 hashlib3==1.0.2
 python-dotenv==1.0.0
+mpxpy==1.0.2
