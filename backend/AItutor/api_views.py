@@ -415,7 +415,7 @@ class QuizViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     
     def get_queryset(self):
-        queryset = Quiz.objects.prefetch_related('questions', 'quiz_questions')
+        queryset = Quiz.objects.prefetch_related('questions', 'quizquestion_set')
         
         # Filter by user's quizzes or public quizzes
         if not self.request.user.is_staff:
@@ -581,7 +581,7 @@ class QuizViewSet(viewsets.ModelViewSet):
                 analytics_data['average_completion_time'] = sum(completion_times) / len(completion_times)
         
         # Question distribution
-        quiz_questions = quiz.quiz_questions.select_related('question')
+        quiz_questions = quiz.quizquestion_set.select_related('question')
         
         for quiz_question in quiz_questions:
             question = quiz_question.question

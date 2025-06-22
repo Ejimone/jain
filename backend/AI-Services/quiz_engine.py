@@ -25,8 +25,15 @@ except ImportError:
     pytesseract = None
 
 # Import our existing AI services
-from .RealTimeSearch import RealTimeSearch
-from .Rag import RagProcessor
+try:
+    from RealTimeSearch import RealTimeSearch
+except ImportError:
+    RealTimeSearch = None
+
+try:
+    from Rag import RagProcessor
+except ImportError:
+    RagProcessor = None
 
 # Import models
 from AItutor.models import (
@@ -69,30 +76,59 @@ class AIQuizEngine:
         self.config = QuestionGenerationConfig()
         
         # Initialize AI models
-        self._setup_ai_models()
+        self.ai_models_available = self._setup_ai_models()
         
         # Initialize existing services
-        self.real_time_search = RealTimeSearch()
-        self.rag_processor = RagProcessor()
+        try:
+            self.real_time_search = RealTimeSearch()
+        except Exception as e:
+            logger.warning(f"RealTimeSearch not available: {e}")
+            self.real_time_search = None
+            
+        try:
+            self.rag_processor = RagProcessor()
+        except Exception as e:
+            logger.warning(f"RagProcessor not available: {e}")
+            self.rag_processor = None
         
         # OCR setup
-        self.ocr_enabled = True
+        self.ocr_enabled = OCR_AVAILABLE
         
     def _setup_ai_models(self):
         """Setup AI models with proper authentication"""
         try:
+            # Get AI config from Django settings
+            ai_config = getattr(settings, 'AI_SERVICES_CONFIG', {})
+            
             # OpenAI setup
-            openai.api_key = os.getenv('OPENAI_API_KEY')
+            openai_key = ai_config.get('OPENAI_API_KEY') or os.getenv('OPENAI_API_KEY')
+            if openai_key:
+                openai.api_key = openai_key
+                logger.info("OpenAI API initialized")
+            else:
+                logger.warning("OpenAI API key not found")
             
             # Google Gemini setup
-            genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-            self.gemini_model = genai.GenerativeModel('gemini-pro')
-            self.gemini_vision_model = genai.GenerativeModel('gemini-pro-vision')
+            gemini_key = ai_config.get('GEMINI_API_KEY') or os.getenv('GEMINI_API_KEY') or os.getenv('GOOGLE_API_KEY')
+            if gemini_key:
+                genai.configure(api_key=gemini_key)
+                self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model name
+                self.gemini_vision_model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model name
+                logger.info("Gemini API initialized")
+            else:
+                logger.warning("Gemini API key not found")
             
-            logger.info("AI models initialized successfully")
+            # Check if at least one AI service is available
+            if openai_key or gemini_key:
+                logger.info("AI models initialized successfully")
+                return True
+            else:
+                logger.error("No AI API keys found - AI features will be disabled")
+                return False
+                
         except Exception as e:
             logger.error(f"Failed to initialize AI models: {e}")
-            raise
+            return False
     
     async def generate_quiz(
         self, 
@@ -496,7 +532,10 @@ Generate exactly {count} questions now:
     async def _generate_with_openai(self, prompt: str) -> str:
         """Generate content using OpenAI"""
         try:
-            response = await openai.ChatCompletion.acreate(
+            from openai import AsyncOpenAI
+            client = AsyncOpenAI(api_key=openai.api_key)
+            
+            response = await client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "You are an expert educational content creator."},
@@ -973,5 +1012,10 @@ Generate exactly {count} questions now:
             ]
 
 
-# Initialize global instance
-ai_quiz_engine = AIQuizEngine()
+# Initialize global instance with error handling
+try:
+    ai_quiz_engine = AIQuizEngine()
+    logger.info("AI Quiz Engine initialized successfully")
+except Exception as e:
+    logger.error(f"Failed to initialize AI Quiz Engine: {e}")
+    ai_quiz_engine = None

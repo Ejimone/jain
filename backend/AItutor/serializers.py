@@ -618,7 +618,7 @@ class QuestionDetailSerializer(QuestionSerializer):
 
 class QuizDetailSerializer(QuizSerializer):
     """Extended quiz serializer with full details including questions"""
-    quiz_questions = QuizQuestionSerializer(many=True, read_only=True)
+    quiz_questions = QuizQuestionSerializer(source='quizquestion_set', many=True, read_only=True)
     analytics_data = serializers.SerializerMethodField()
     
     class Meta(QuizSerializer.Meta):

@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file in AI-Services directory
+env_path = Path(__file__).resolve().parent.parent.parent / 'backend' / 'AI-Services' / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +31,7 @@ SECRET_KEY = "django-insecure-ktl5v)75(!=e^!y6wcyh18t$@n%%&4g!m#4k59$%aivo7t=utm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testserver', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     
     # Third party apps
     "rest_framework",
+    "rest_framework.authtoken",  # Add this for token authentication
     "corsheaders",
     
     # Local apps

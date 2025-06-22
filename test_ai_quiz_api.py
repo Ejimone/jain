@@ -6,14 +6,19 @@ Test script for the AI-powered quiz system API endpoints
 import requests
 import json
 from typing import Dict, Any
+import sys
+import os
 
 BASE_URL = "http://127.0.0.1:8001/api/v1/ai-tutor"
+AUTH_URL = "http://127.0.0.1:8001/api/v1"
 
 # Test data
 TEST_USER_DATA = {
     "username": "test_student",
     "email": "test@example.com",
-    "password": "testpassword123"
+    "password": "testpassword123",
+    "first_name": "Test",
+    "last_name": "Student"
 }
 
 class APITester:
