@@ -124,3 +124,36 @@ Watching for file changes with StatReloader
 "GET /api/v1/content/tags/ HTTP/1.1" 200 1190
 "GET /api/v1/ai-tutor/ai-models/ HTTP/1.1" 200 277
 "GET /api/v1/services/health/ HTTP/1.1" 200 195
+"GET /api/v1/students/regions/ HTTP/1.1" 200 2340
+"GET /api/v1/students/departments/ HTTP/1.1" 200 1975
+"GET /api/v1/students/courses/ HTTP/1.1" 200 4011
+Not Found: /api/v1/students/users/
+"GET /api/v1/students/users/ HTTP/1.1" 404 17308
+Forbidden: /api/v1/students/profiles/
+"GET /api/v1/students/profiles/ HTTP/1.1" 403 58
+Forbidden: /api/v1/content/content/
+"GET /api/v1/content/content/ HTTP/1.1" 403 58
+"GET /api/v1/content/categories/ HTTP/1.1" 200 1749
+"GET /api/v1/content/tags/ HTTP/1.1" 200 1190
+Not Found: /api/v1/content/study-materials/
+"GET /api/v1/content/study-materials/ HTTP/1.1" 404 18055
+Forbidden: /api/v1/content/questions/
+"GET /api/v1/content/questions/ HTTP/1.1" 403 58
+"GET /api/v1/ai-tutor/ai-models/ HTTP/1.1" 200 277
+Forbidden: /api/v1/ai-tutor/sessions/
+"GET /api/v1/ai-tutor/sessions/ HTTP/1.1" 403 58
+Forbidden: /api/v1/ai-tutor/study-plans/
+"GET /api/v1/ai-tutor/study-plans/ HTTP/1.1" 403 58
+"GET /api/v1/services/health/ HTTP/1.1" 200 195
+Forbidden: /api/v1/services/capabilities/
+"GET /api/v1/services/capabilities/ HTTP/1.1" 403 58
+Not Found: /api/v1/recommendations/content/
+"GET /api/v1/recommendations/content/ HTTP/1.1" 404 4541
+Not Found: /api/v1/recommendations/courses/
+"GET /api/v1/recommendations/courses/ HTTP/1.1" 404 4541
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+Not Found: /api/v1/
+"GET /api/v1/ HTTP/1.1" 404 3167
+"GET /api/v1/students HTTP/1.1" 301 0
+"GET /api/v1/students/ HTTP/1.1" 200 369
