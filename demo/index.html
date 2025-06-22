@@ -73,12 +73,12 @@
                         <h3>Login</h3>
                         <form id="loginFormElement">
                             <div class="form-group">
-                                <label for="loginUsername">Username</label>
-                                <input type="text" id="loginUsername" required value="testuser">
+                                <label for="loginUsername">Email</label>
+                                <input type="email" id="loginUsername" required value="demo@example.com">
                             </div>
                             <div class="form-group">
                                 <label for="loginPassword">Password</label>
-                                <input type="password" id="loginPassword" required value="testpass123">
+                                <input type="password" id="loginPassword" required value="demo123456">
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-sign-in-alt"></i> Login
@@ -286,6 +286,34 @@
                 <div id="analyticsResults" class="results-area" style="display: none;">
                     <h3>Analytics Dashboard</h3>
                     <div id="analyticsResultsContent"></div>
+                </div>
+            </section>
+
+            <!-- Quick Test Section -->
+            <section class="section" id="testSection">
+                <div class="section-header">
+                    <h2><i class="fas fa-flask"></i> Quick Tests</h2>
+                    <p>Test backend connectivity and functionality</p>
+                </div>
+                
+                <div class="test-controls">
+                    <button id="testCoursesBtn" class="btn btn-outline">
+                        <i class="fas fa-book"></i> Test Courses
+                    </button>
+                    <button id="testQuizzesBtn" class="btn btn-outline">
+                        <i class="fas fa-question-circle"></i> Test Quizzes
+                    </button>
+                    <button id="testImageBtn" class="btn btn-outline">
+                        <i class="fas fa-image"></i> Test Image Upload
+                    </button>
+                    <button id="testAIBtn" class="btn btn-outline">
+                        <i class="fas fa-brain"></i> Test AI Generation
+                    </button>
+                </div>
+                
+                <div id="testResults" class="results-container" style="display: none;">
+                    <h3>Test Results</h3>
+                    <div id="testResultsContent"></div>
                 </div>
             </section>
         </div>

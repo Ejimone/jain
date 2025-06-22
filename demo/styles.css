@@ -513,6 +513,57 @@ body {
     color: #666;
 }
 
+/* Test Section Styles */
+.test-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.test-controls .btn {
+    flex: 1;
+    min-width: 150px;
+}
+
+.test-result {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+}
+
+.test-result.success {
+    background-color: #f0f9ff;
+    border-left-color: #10b981;
+    color: #065f46;
+}
+
+.test-result.error {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+    color: #991b1b;
+}
+
+.test-result.info {
+    background-color: #f0f9ff;
+    border-left-color: #3b82f6;
+    color: #1e40af;
+}
+
+.test-result h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.test-result p, .test-result ol {
+    margin: 0.25rem 0;
+}
+
+.test-result ol {
+    padding-left: 1.5rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
