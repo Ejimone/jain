@@ -1267,5 +1267,3 @@ LOGGING = {
 **Last Updated:** June 22, 2025  
 **API Version:** 1.0  
 **Documentation Version:** 1.0
-
-For additional support or questions, please contact the development team or refer to the project's GitHub repository.
