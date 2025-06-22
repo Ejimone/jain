@@ -1703,3 +1703,9 @@ Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 "POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 6389
 "POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 1987
+"GET /admin/AItutor/aimodelusage/ HTTP/1.1" 200 25101
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/question/ HTTP/1.1" 200 40364
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/question/ab47ff06-f86e-433d-8ce9-48decdf94134/change/ HTTP/1.1" 200 43722
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
