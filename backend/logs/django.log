@@ -851,3 +851,212 @@ Watching for file changes with StatReloader
 "GET /api/v1/recommendations/courses/ HTTP/1.1" 200 223
 "GET /admin/ HTTP/1.1" 302 0
 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+"GET /api/v1/students/regions/ HTTP/1.1" 200 2340
+"GET /api/v1/students/departments/ HTTP/1.1" 200 1975
+"GET /api/v1/students/courses/ HTTP/1.1" 200 4011
+"GET /api/v1/students/users/ HTTP/1.1" 200 52
+"GET /api/v1/students/profiles/ HTTP/1.1" 200 52
+"GET /api/v1/content/content/ HTTP/1.1" 200 52
+"GET /api/v1/content/categories/ HTTP/1.1" 200 1749
+"GET /api/v1/content/tags/ HTTP/1.1" 200 1190
+"GET /api/v1/content/study-materials/ HTTP/1.1" 200 52
+"GET /api/v1/content/questions/ HTTP/1.1" 200 52
+"GET /api/v1/ai-tutor/ai-models/ HTTP/1.1" 200 277
+"GET /api/v1/ai-tutor/sessions/ HTTP/1.1" 200 52
+"GET /api/v1/ai-tutor/study-plans/ HTTP/1.1" 200 52
+"GET /api/v1/services/health/ HTTP/1.1" 200 195
+"GET /api/v1/services/capabilities/ HTTP/1.1" 200 788
+"GET /api/v1/recommendations/content/ HTTP/1.1" 200 236
+"GET /api/v1/recommendations/courses/ HTTP/1.1" 200 223
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4170
+Not Found: /api/v1/
+"GET /api/v1/ HTTP/1.1" 404 3167
+"GET /admin/AItutor/aiinteraction/ HTTP/1.1" 200 20974
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/aimodelusage/ HTTP/1.1" 200 19486
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatmessage/ HTTP/1.1" 200 20626
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/ HTTP/1.1" 200 22128
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Internal Server Error: /admin/AItutor/chatsession/add/
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/db/models/options.py", line 683, in get_field
+    return self.fields_map[field_name]
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'duration_minutes'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 290, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 330, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/db/models/options.py", line 685, in get_field
+    raise FieldDoesNotExist(
+        "%s has no field named '%s'" % (self.object_name, field_name)
+    )
+django.core.exceptions.FieldDoesNotExist: ChatSession has no field named 'duration_minutes'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 925, in _resolve_lookup
+    current = current()
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/helpers.py", line 275, in contents
+    f, attr, value = lookup_field(field, obj, model_admin)
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 302, in lookup_field
+    attr = getattr(obj, name, sentinel)
+  File "/Users/evidenceejimone/jain/backend/AItutor/models.py", line 40, in duration_minutes
+    duration = end_time - self.created_at
+               ~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'NoneType'
+"GET /admin/AItutor/chatsession/add/ HTTP/1.1" 500 589958
+"GET /admin/AItutor/chatsession/ HTTP/1.1" 200 22128
+"GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71 HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=52e8b944-e557-4d34-9b0c-8236be3765ba HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=0819a3e5-e1e5-48ca-a38c-8fd3e9b921b4 HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=ef4f58bf-f75e-4c4d-92eb-52d5f04a2d6d HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=bb6dc7a3-976c-4dd8-aed2-80ce7dd9d44f HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=78822f25-2052-4d1b-98cc-70a110ea2aa8 HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=ea8d7a7f-233a-4d3d-860c-1bb6f62ffb0f HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71 HTTP/1.1" 200 22906
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71&created_at__gte=2025-06-22+00%3A00%3A00%2B00%3A00&created_at__lt=2025-06-23+00%3A00%3A00%2B00%3A00 HTTP/1.1" 200 25335
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71&created_at__gte=2025-06-22+00%3A00%3A00%2B00%3A00&created_at__lt=2025-06-23+00%3A00%3A00%2B00%3A00&is_active__exact=1 HTTP/1.1" 200 25925
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71&created_at__gte=2025-06-22+00%3A00%3A00%2B00%3A00&created_at__lt=2025-06-23+00%3A00%3A00%2B00%3A00&is_active__exact=0 HTTP/1.1" 200 25925
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
