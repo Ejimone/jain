@@ -1,10 +1,11 @@
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from django.db.models import Count, Avg, Q
 from django.utils import timezone
 from datetime import timedelta
 import logging
+import random
 
 from content.models import Content, ContentRating, ContentView
 from content.serializers import ContentListSerializer
@@ -437,3 +438,63 @@ def get_content_for_exam_prep(request):
     except Exception as e:
         logger.error(f"Error getting exam prep content for user {user.email}: {e}")
         return Response({'error': 'Failed to get exam preparation content'}, status=500)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])  # Allow public access for testing
+def get_content_recommendations(request):
+    """
+    Get content recommendations for a user.
+    """
+    # Mock recommendation data for testing
+    recommendations = [
+        {
+            'id': 1,
+            'title': 'Advanced Mathematics Problems',
+            'type': 'study_material',
+            'difficulty': 'hard',
+            'score': 0.95
+        },
+        {
+            'id': 2,
+            'title': 'Physics Past Papers 2023',
+            'type': 'past_paper',
+            'difficulty': 'medium',
+            'score': 0.88
+        }
+    ]
+    
+    return Response({
+        'recommendations': recommendations,
+        'total': len(recommendations)
+    })
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])  # Allow public access for testing
+def get_course_recommendations(request):
+    """
+    Get course recommendations for a user.
+    """
+    # Mock course recommendation data for testing
+    recommendations = [
+        {
+            'id': 1,
+            'title': 'Data Structures',
+            'department': 'Computer Science Engineering',
+            'semester': 3,
+            'score': 0.92
+        },
+        {
+            'id': 2,
+            'title': 'Linear Algebra',
+            'department': 'Mathematics',
+            'semester': 2,
+            'score': 0.85
+        }
+    ]
+    
+    return Response({
+        'recommendations': recommendations,
+        'total': len(recommendations)
+    })

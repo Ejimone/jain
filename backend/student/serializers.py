@@ -5,6 +5,15 @@ from django.core.exceptions import ValidationError
 from .models import User, StudentProfile, Region, Department, Course, StudySession, UserProgress
 
 
+class UserSerializer(serializers.ModelSerializer):
+    """Serializer for User model"""
+    
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'date_joined']
+        read_only_fields = ['id', 'date_joined']
+
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
     """Serializer for user registration"""
     password = serializers.CharField(write_only=True, validators=[validate_password])

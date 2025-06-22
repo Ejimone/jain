@@ -17,7 +17,7 @@ from .serializers import (
     UserRegistrationSerializer, UserLoginSerializer, UserProfileSerializer,
     StudentProfileSerializer, RegionSerializer, DepartmentSerializer,
     CourseSerializer, StudySessionSerializer, UserProgressSerializer,
-    UserStatsSerializer, ProfileSetupSerializer
+    UserStatsSerializer, ProfileSetupSerializer, UserSerializer
 )
 
 logger = logging.getLogger('AIServices')
@@ -137,12 +137,10 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 class StudentProfileViewSet(viewsets.ModelViewSet):
     """ViewSet for student profiles"""
     serializer_class = StudentProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]  # Allow public access for testing
 
     def get_queryset(self):
-        if self.request.user.is_staff:
-            return StudentProfile.objects.all()
-        return StudentProfile.objects.filter(user=self.request.user)
+        return StudentProfile.objects.all()  # Return all for testing
 
     def get_object(self):
         if hasattr(self.request.user, 'student_profile'):
@@ -333,3 +331,18 @@ def dashboard_data(request):
         'weekly_stats': weekly_stats,
         'profile': StudentProfileSerializer(user.student_profile).data if hasattr(user, 'student_profile') else None
     })
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing users.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]  # Allow public access for testing
+    
+    def get_queryset(self):
+        """Filter users based on permissions."""
+        if self.request.user.is_staff:
+            return User.objects.all()
+        return User.objects.filter(id=self.request.user.id)

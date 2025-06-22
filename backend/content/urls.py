@@ -5,6 +5,7 @@ from . import views
 router = DefaultRouter()
 router.register(r'content', views.ContentViewSet, basename='content')
 router.register(r'questions', views.QuestionViewSet, basename='question')
+router.register(r'study-materials', views.StudyMaterialViewSet, basename='studymaterial')
 router.register(r'categories', views.ContentCategoryViewSet)
 router.register(r'tags', views.TagViewSet)
 router.register(r'bookmarks', views.UserBookmarkViewSet, basename='bookmark')

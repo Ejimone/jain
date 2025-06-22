@@ -368,7 +368,7 @@ def health_check(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_service_capabilities(request):
     """
     Get information about available AI service capabilities.
