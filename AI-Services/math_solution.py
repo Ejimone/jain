@@ -1,21 +1,3 @@
-"""
-Math Problem Solver Module for Examify AI-powered Exam Preparation App
-
-This module integrates OCR technology (Mathpix and Google Vision API) with 
-Google Gemini AI to extract mathematical content from images and provide 
-comprehensive solutions and explanations.
-
-Features:
-- Multiple OCR providers (Mathpix, Google Vision)
-- Intelligent fallback mechanisms
-- Comprehensive math problem solving using Gemini AI
-- Structured response format
-- Error handling and logging
-- Educational focus for exam preparation
-
-Author: Examify AI Team
-Version: 1.0.0
-"""
 
 import os
 import io
@@ -651,3 +633,28 @@ if __name__ == "__main__":
     
     # Run the test
     asyncio.run(test_math_solver())
+
+
+
+
+
+
+
+"""
+Math Problem Solver Module for Examify AI-powered Exam Preparation App
+
+This module integrates OCR technology (Mathpix and Google Vision API) with 
+Google Gemini AI to extract mathematical content from images and provide 
+comprehensive solutions and explanations.
+
+Features:
+- Multiple OCR providers (Mathpix, Google Vision)
+- Intelligent fallback mechanisms
+- Comprehensive math problem solving using Gemini AI
+- Structured response format
+- Error handling and logging
+- Educational focus for exam preparation
+
+Author: Examify AI Team
+Version: 1.0.0
+"""

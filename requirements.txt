@@ -90,4 +90,4 @@ faiss-cpu
 aiohttp
 serpapi
 python-dotenv
-mpxpy
+fastapi
