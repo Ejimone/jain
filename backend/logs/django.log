@@ -1060,3 +1060,202 @@ TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'NoneType'
 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 "GET /admin/AItutor/chatsession/?course__id__exact=b5a95e9c-69a7-479d-9ce7-cb8a3912cf71&created_at__gte=2025-06-22+00%3A00%3A00%2B00%3A00&created_at__lt=2025-06-23+00%3A00%3A00%2B00%3A00&is_active__exact=0 HTTP/1.1" 200 25925
 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/aiinteraction/ HTTP/1.1" 200 20974
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/aimodelusage/ HTTP/1.1" 200 19486
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatmessage/ HTTP/1.1" 200 20626
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/chatsession/ HTTP/1.1" 200 22128
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/studyplantask/ HTTP/1.1" 200 20792
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/studyplan/ HTTP/1.1" 200 21081
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/studyplan/?plan_type__exact=exam_prep HTTP/1.1" 200 21701
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Internal Server Error: /admin/AItutor/studyplan/add/
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/db/models/options.py", line 683, in get_field
+    return self.fields_map[field_name]
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'days_remaining'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 290, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 330, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/db/models/options.py", line 685, in get_field
+    raise FieldDoesNotExist(
+        "%s has no field named '%s'" % (self.object_name, field_name)
+    )
+django.core.exceptions.FieldDoesNotExist: StudyPlan has no field named 'days_remaining'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/template/base.py", line 925, in _resolve_lookup
+    current = current()
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/helpers.py", line 275, in contents
+    f, attr, value = lookup_field(field, obj, model_admin)
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evidenceejimone/jain/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 302, in lookup_field
+    attr = getattr(obj, name, sentinel)
+  File "/Users/evidenceejimone/jain/backend/AItutor/models.py", line 162, in days_remaining
+    if self.end_date < today:
+       ^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'datetime.date'
+"GET /admin/AItutor/studyplan/add/?_changelist_filters=plan_type__exact%3Dexam_prep HTTP/1.1" 500 591065
+"GET /admin/AItutor/studyplan/?plan_type__exact=exam_prep HTTP/1.1" 200 21701
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/admin.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/AItutor/studyplan/?plan_type__exact=exam_prep HTTP/1.1" 200 21701
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/studyplan/?plan_type__exact=exam_prep HTTP/1.1" 200 21701
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/AItutor/studyplan/add/?_changelist_filters=plan_type__exact%3Dexam_prep HTTP/1.1" 200 32153
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+"GET /admin/AItutor/studyplan/add/ HTTP/1.1" 302 0

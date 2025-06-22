@@ -36,6 +36,8 @@ class ChatSession(models.Model):
     @property
     def duration_minutes(self):
         """Calculate session duration in minutes"""
+        if not self.created_at:
+            return 0
         end_time = self.ended_at or timezone.now()
         duration = end_time - self.created_at
         return int(duration.total_seconds() / 60)
@@ -158,6 +160,8 @@ class StudyPlan(models.Model):
     @property
     def days_remaining(self):
         """Calculate days remaining for the plan"""
+        if not self.end_date:
+            return None  # Return None if end_date is not set
         today = timezone.now().date()
         if self.end_date < today:
             return 0

@@ -32,12 +32,20 @@ class ChatMessageAdmin(admin.ModelAdmin):
 @admin.register(StudyPlan)
 class StudyPlanAdmin(admin.ModelAdmin):
     """Study plan admin"""
-    list_display = ('user', 'title', 'plan_type', 'status', 'progress_percentage', 'start_date', 'end_date')
+    list_display = ('user', 'title', 'plan_type', 'status', 'progress_percentage', 'start_date', 'end_date', 'days_remaining_display')
     list_filter = ('plan_type', 'status', 'ai_generated', 'created_at')
     search_fields = ('user__email', 'title', 'description')
     raw_id_fields = ('user',)
     filter_horizontal = ('courses',)
-    readonly_fields = ('total_tasks', 'completed_tasks', 'progress_percentage', 'days_remaining')
+    readonly_fields = ('total_tasks', 'completed_tasks', 'progress_percentage', 'days_remaining_display')
+    
+    def days_remaining_display(self, obj):
+        """Display days remaining with None handling"""
+        days = obj.days_remaining
+        if days is None:
+            return "Not set"
+        return f"{days} days"
+    days_remaining_display.short_description = "Days Remaining"
 
 
 @admin.register(StudyPlanTask)
