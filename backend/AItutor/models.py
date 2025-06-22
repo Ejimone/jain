@@ -376,7 +376,7 @@ class Question(models.Model):
     actual_solve_times = models.JSONField(default=list, blank=True)  # Track user solve times
     
     # Content Classification
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='questions')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='questions', null=True, blank=True)
     topics = models.JSONField(default=list)  # List of topics covered
     tags = models.JSONField(default=list)  # Additional tags
     

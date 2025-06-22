@@ -1618,3 +1618,88 @@ Not Found: /api/v1/ai-tutor/analytics/user-progress/
 Watching for file changes with StatReloader
 /Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
 Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Forbidden: /api/v1/ai-tutor/questions/generate_ai_questions/
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 403 27
+Not Found: /api/v1/ai-tutor/user-sessions/
+Not Found: /api/v1/ai-tutor/analytics/user-progress/
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/v1/ai-tutor/user-sessions/
+Not Found: /api/v1/ai-tutor/analytics/user-progress/
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /api/questions/generate_ai_questions/
+"POST /api/questions/generate_ai_questions/ HTTP/1.1" 404 3255
+Not Found: /api/questions/generate_ai_questions/
+"POST /api/questions/generate_ai_questions/ HTTP/1.1" 404 3255
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+Watching for file changes with StatReloader
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AI-Services/quiz_engine.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 41
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/api_views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/evidenceejimone/jain/backend/AItutor/models.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 6389
+"POST /api/v1/ai-tutor/questions/generate_ai_questions/ HTTP/1.1" 201 1987
