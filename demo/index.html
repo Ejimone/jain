@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examify Backend Demo - AI-Powered Exam Preparation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Examify Demo</span>
+                </div>
+                <div class="auth-status">
+                    <div id="authStatus" class="auth-status-info">
+                        <span id="authText">Not authenticated</span>
+                        <button id="authBtn" class="btn btn-outline">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h1>🤖 AI-Powered Exam Preparation System</h1>
+                <p>Test all backend functionality including image uploads, AI question generation, and exam analysis</p>
+                
+                <!-- Feature Cards -->
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-image"></i>
+                        <h3>Image Upload & OCR</h3>
+                        <p>Upload past question images and extract text using advanced OCR</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI Question Generation</h3>
+                        <p>Generate questions using OpenAI and Gemini AI models</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Math Problem Solver</h3>
+                        <p>Solve mathematical problems from images with step-by-step solutions</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Performance Analytics</h3>
+                        <p>Track learning progress and analyze performance metrics</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Authentication Section -->
+            <section id="authSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-lock"></i> Authentication</h2>
+                    <p>Authenticate to access AI features</p>
+                </div>
+                
+                <div class="auth-forms">
+                    <!-- Login Form -->
+                    <div class="auth-form" id="loginForm">
+                        <h3>Login</h3>
+                        <form id="loginFormElement">
+                            <div class="form-group">
+                                <label for="loginUsername">Username</label>
+                                <input type="text" id="loginUsername" required value="testuser">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" required value="testpass123">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Register Form -->
+                    <div class="auth-form" id="registerForm" style="display: none;">
+                        <h3>Register</h3>
+                        <form id="registerFormElement">
+                            <div class="form-group">
+                                <label for="regUsername">Username</label>
+                                <input type="text" id="regUsername" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regEmail">Email</label>
+                                <input type="email" id="regEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regPassword">Password</label>
+                                <input type="password" id="regPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regFirstName">First Name</label>
+                                <input type="text" id="regFirstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regLastName">Last Name</label>
+                                <input type="text" id="regLastName" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-user-plus"></i> Register
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="auth-toggle">
+                    <button id="toggleAuth" class="btn btn-outline">
+                        Need an account? Register here
+                    </button>
+                </div>
+            </section>
+
+            <!-- Image Upload Section -->
+            <section id="imageSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-image"></i> Image Upload & Processing</h2>
+                    <p>Upload past question images for OCR and AI analysis</p>
+                </div>
+                
+                <div class="upload-area">
+                    <div class="upload-dropzone" id="imageDropzone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your image here or click to browse</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <button class="btn btn-outline" onclick="document.getElementById('imageInput').click()">
+                            Choose Image
+                        </button>
+                    </div>
+                    
+                    <div class="upload-options">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="extractText" checked>
+                                Extract text using OCR
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseSelect">Course (optional)</label>
+                            <select id="courseSelect">
+                                <option value="">Select a course</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="uploadImageBtn" class="btn btn-primary" disabled>
+                        <i class="fas fa-upload"></i> Upload & Process
+                    </button>
+                </div>
+                
+                <div id="imageResults" class="results-area" style="display: none;">
+                    <h3>Processing Results</h3>
+                    <div id="imageResultsContent"></div>
+                </div>
+            </section>
+
+            <!-- Math Solver Section -->
+            <section id="mathSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-calculator"></i> Math Problem Solver</h2>
+                    <p>Upload math problem images for AI-powered solutions</p>
+                </div>
+                
+                <div class="upload-area">
+                    <div class="upload-dropzone" id="mathDropzone">
+                        <i class="fas fa-square-root-alt"></i>
+                        <p>Upload a math problem image</p>
+                        <input type="file" id="mathInput" accept="image/*" hidden>
+                        <button class="btn btn-outline" onclick="document.getElementById('mathInput').click()">
+                            Choose Math Image
+                        </button>
+                    </div>
+                    
+                    <button id="solveMathBtn" class="btn btn-primary" disabled>
+                        <i class="fas fa-brain"></i> Solve Problem
+                    </button>
+                </div>
+                
+                <div id="mathResults" class="results-area" style="display: none;">
+                    <h3>Solution</h3>
+                    <div id="mathResultsContent"></div>
+                </div>
+            </section>
+
+            <!-- AI Question Generation Section -->
+            <section id="aiSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-brain"></i> AI Question Generation</h2>
+                    <p>Generate questions using AI based on topics and difficulty</p>
+                </div>
+                
+                <div class="ai-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="aiTopics">Topics (comma-separated)</label>
+                            <input type="text" id="aiTopics" placeholder="calculus, derivatives, limits" 
+                                   value="artificial intelligence, machine learning">
+                        </div>
+                        <div class="form-group">
+                            <label for="aiDifficulty">Difficulty</label>
+                            <select id="aiDifficulty">
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate" selected>Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="aiCount">Number of Questions</label>
+                            <input type="number" id="aiCount" min="1" max="10" value="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="aiTypes">Question Types</label>
+                            <select id="aiTypes" multiple>
+                                <option value="multiple_choice" selected>Multiple Choice</option>
+                                <option value="short_answer">Short Answer</option>
+                                <option value="true_false">True/False</option>
+                                <option value="essay">Essay</option>
+                                <option value="code">Code</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="generateQuestionsBtn" class="btn btn-primary">
+                        <i class="fas fa-magic"></i> Generate Questions
+                    </button>
+                </div>
+                
+                <div id="aiResults" class="results-area" style="display: none;">
+                    <h3>Generated Questions</h3>
+                    <div id="aiResultsContent"></div>
+                </div>
+            </section>
+
+            <!-- Quiz Management Section -->
+            <section id="quizSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-clipboard-list"></i> Quiz Management</h2>
+                    <p>Create and manage quizzes</p>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button id="loadQuizzesBtn" class="btn btn-outline">
+                        <i class="fas fa-list"></i> Load Quizzes
+                    </button>
+                    <button id="createQuizBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create New Quiz
+                    </button>
+                </div>
+                
+                <div id="quizResults" class="results-area" style="display: none;">
+                    <h3>Quizzes</h3>
+                    <div id="quizResultsContent"></div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analyticsSection" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Performance Analytics</h2>
+                    <p>View learning analytics and performance metrics</p>
+                </div>
+                
+                <div class="analytics-controls">
+                    <button id="loadAnalyticsBtn" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> Load Analytics
+                    </button>
+                </div>
+                
+                <div id="analyticsResults" class="results-area" style="display: none;">
+                    <h3>Analytics Dashboard</h3>
+                    <div id="analyticsResultsContent"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="notifications"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
