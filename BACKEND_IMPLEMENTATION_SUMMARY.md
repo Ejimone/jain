@@ -195,3 +195,7 @@ The Django backend is now **fully functional** and ready for:
 The architecture is **scalable**, **maintainable**, and follows Django best practices. All components are properly integrated and tested.
 
 **The backend is ready to power the Examify AI exam preparation platform! 🚀**
+
+
+
+<!-- i have to fix this `Now let me fix the permission issues by changing some viewsets to allow public access for testing:`-->
